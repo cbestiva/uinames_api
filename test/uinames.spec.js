@@ -1,4 +1,7 @@
-const expect = require('chai').expect
+const chai = require('chai')
+const chaiAsPromised = require("chai-as-promised");
+chai.use(chaiAsPromised)
+const expect = chai.expect
 const uinames = require('../uinames.js')
 
 describe('getFakeUser()', function() {
@@ -20,13 +23,9 @@ describe('getTwoApiFakeUsers()', function() {
 })
 
 describe('getFemaleFakeUserPromise()', function() {
-  it('should return a fake female user name from api', function(done) {
+  it('should return a fake female user name from api', function() {
     let femaleFakeUserPromise = getFemaleFakeUserPromise()
 
-    femaleFakeUserPromise.then(function(apiUser) {
-      console.log('female test user = ', apiUser)
-      expect(apiUser.gender).to.equal('female')
-      done()
-    })
+    return expect(femaleFakeUserPromise).to.eventually.have.property('gender', 'female')
   })
 })
