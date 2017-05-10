@@ -13,8 +13,14 @@ describe('getTwoApiFakeUsers()', function() {
     function callback(apiUsers) {
       console.log('user test = ', apiUsers)
       expect(apiUsers).to.have.lengthOf(2);
+      done()
     }
     let apiUsers = getTwoApiFakeUsers(callback)
-    done()
+  })
+})
+
+describe('getPromiseFemaleFakeUser()', function() {
+  it('should return a fake female user name from api', function() {
+
   })
 })
