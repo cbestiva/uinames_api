@@ -7,7 +7,7 @@ getFakeUser = function() {
     "gender":"male",
     "region":"United States"
   };
-  return user;
+  return user
 }
 
-module.exports = getFakeUser;
+module.exports = getFakeUser
